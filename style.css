@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: "Vazirmatn", sans-serif;
   background-color: #ffffff;
+  font-family: 'Vazir', sans-serif;
 }
 
 .header {
@@ -128,7 +129,7 @@ body {
   width: 300%;
   height: 100%;
   display: flex;
-  animation: slide 9s infinite;
+  animation: slide 15s infinite;
 }
 
 .slide {
