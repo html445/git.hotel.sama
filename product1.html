@@ -6,23 +6,49 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  
   <section class="product-page">
     <div class="product-image">
-      <img src="Hf902852843ff482eb961e260328b9f7dh.jpg" alt="اگزوز بنلی">
+      <img src="عکس/OIP (1).webp" alt="اگزوز بنلی">
     </div>
     <div class="product-info">
-      <h1 class="product-title">بنلی </h1>
-      <p class="product-price"><del>500,000</del> → 350,000 تومان</p>
+      <h1 class="product-title"> اگزوز بنلی </h1>
+      <p class="product-price">  <del> 500,000 تومان</del> → 300,000 تومان </p>
       <h3>ویژگی‌ها:</h3>
       <ul>
         <li>کیفیت صدای عالی</li>
         <li>مقاوم </li>
       </ul>
       <p class="product-description">
-        این هدفون با طراحی ارگونومیک و کیفیت صدای بالا، تجربه‌ای فوق‌العاده برای شنیدن موسیقی و بازی فراهم می‌کند.
+        قطعه‌ای کلیدی برای خروج دود موتور که هم کارایی موتور را بالا می‌برد و هم صدای جذاب و اسپرت به موتور می‌دهد.
       </p>
-      <button class="add-to-cart">افزودن به سبد خرید</button>
+      <button class="add-to-cart" onclick="addToCart()">افزودن به سبد خرید</button>
+  
     </div>
   </section>
+  <script>
+function addToCart() {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let product = {
+        name: "اگزوز بنلی",
+        price: 300000,
+        quantity: 1
+    };
+
+    let existing = cart.find(item => item.name === product.name);
+
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        cart.push(product);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    window.location.href = "checkout.html";
+}
+</script>
 </body>
 </html>

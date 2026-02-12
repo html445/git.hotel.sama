@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <title> فروشگاه موتورسیکلت</title>
   <!-- Remix Icon -->
+   <link href="https://cdn.jsdelivr.net/npm/vazir-font@30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link href="https://cdn.jsdelivr.net/npm/vazir-font@30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="slider.css">
 </head>
 
 <body>
@@ -28,49 +29,58 @@
     </div>
 
     <!-- Left: Icons -->
-    <div class="icons">
-      <a href="#"><i class="ri-heart-line"></i></a>
-      <a href="#"><i class="ri-shopping-cart-line"></i></a>
-      <a href="#"><i class="ri-user-line"></i></a>
-    </div>
-<head>
-</header>
-
-
+    <div class="icons"></div>
+ 
     <!--  منوی دو سطحی -->
 
         <nav class="menu">
             <ul>
-                <li><a href="#">خانه</a></li>
+                <li><a href="">خانه</a></li>
 
                 <li class="has-sub">
                     <a href="#">محصولات</a>
                     <ul class="sub-menu">
-                        <li><a href="#">هوندا</a></li>
-                        <li><a href="#">بنلی</a></li>
-                        <li><a href="#">لوازم جانبی</a></li>
+                        <li><a href="product1.html">اگزوز بنلی</a></li>
+                        <li><a href="product2.html">باک بنلی</a></li>
+                        <li><a href="product3.html">کاربراتور</a></li>
                     </ul>
                 </li>
 
-                <li><a href="#">تماس با ما</a></li>
+                <li><a href="contact.html">تماس با ما</a></li>
             </ul>
         </nav>
 
+</header>
 
-    <!-- اسلایدر -->
-    <div class="slider">
-        <div class="slides">
-            <div class="slide"><img src="OIP.webp"></div>
-            <div class="slide"><img src="Hf902852843ff482eb961e260328b9f7dh.jpg"></div>
-            <div class="slide"><img src="Untitled.jpg"></div>
-        </div>
+<div class="slider">
+
+    <div class="slide active">
+        <img src="عکس/OIP.webp" alt="">
+        <div class="discount">۳۰٪ تخفیف</div>
     </div>
 
+    <div class="slide">
+        <img src="عکس/OIP55.jpg" alt="">
+        <div class="discount">۵۰٪ تخفیف</div>
+    </div>
 
+    <div class="slide">
+        <img src="عکس/IjNlhuzm79NWBVDTIG7M60fLHioMlJbKqJAtnJDq4NucsQR7y1.jpg_800X800X70.jpg" alt="">
+        <div class="discount">۲۰٪ تخفیف</div>
+    </div>
+
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+
+</div>
+</body>
+</html>
+   
+  
     <!-- بنر دوتایی -->
     <section class="banners">
-        <div class="banner"><img src="OIP (1).webp"></div>
-        <div class="banner"><img src="لوازم-یدکی-موتور-سیکلت.jpg"></div>
+        <div class="banner"><img src="عکس/OIP.jpg"></div>
+        <div class="banner"><img src="عکس/912614a6-6ca0-4058-8297-841f081a318c.jpg"></div>
     </section>
 
 
@@ -80,7 +90,7 @@
 
         <div class="product-box">
           <a href="product1.html">
-            <img src="Hf902852843ff482eb961e260328b9f7dh.jpg">
+            <img src="عکس/OIP (1).webp">
             <h3>اگزوز بنلی</h3>
             <p class="price"><del>500,000</del> → 350,000</p>
           </a>
@@ -88,7 +98,7 @@
 
         <div class="product-box">
           <a href="product2.html">
-            <img src="IMG_۲۰۲۳۱۲۲۸_۲۰۵۰۱۰.jpg">
+            <img src="عکس/OIP (2).webp">
             <h3>باک بنلی </h3>
             <p class="price"><del>700,000</del> → 490,000</p>
           </a>
@@ -96,8 +106,8 @@
 
         <div class="product-box">
           <a href="product3.html">
-            <img src="444532.jpg">
-            <h3>هوندا 150</h3>
+            <img src="عکس/کاربراتور-موتور-سیکلت-هوندا-لیون-117006010_0.jpg">
+            <h3>کاربراتور</h3>
             <p class="price"><del>300,000</del> → 210,000</p>
         </a>
         </div>
@@ -116,6 +126,8 @@
     <h2>تغییری در مسیر حرکتت ایجاد کن </h2>
     <p>عضو شو تا اولین نفری باشی که از تخفیف‌ها و محصولات جدید باخبر میشه</p>
 
+  
+
     <form class="subscribe-form">
       <button type="submit">ورود</button>
       <input type="email" placeholder="ایمیل خود را وارد کنید">
@@ -131,7 +143,10 @@
       <p> ۲۰۲۵، فروشگاه موتور سیکلت</p>
     </div>
   </div>
+    <!-- دکمه درباره ما -->
+<button class="about-btn" onclick="location.href='about.html'">درباره ما</button>
 </footer>
+<script src="slider.js"></script>
 </body>
 
 </html>

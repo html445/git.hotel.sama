@@ -2,28 +2,52 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title> هوندا 150</title>
+  <title> کاربراتور</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <section class="product-page">
     <div class="product-image">
-      <img src="p3.jpg" alt="هوندا">
+      <img src="عکس/کاربراتور-موتور-سیکلت-هوندا-لیون-117006010_0.jpg" alt="کاربراتور">
     </div>
     <div class="product-info">
-      <h1 class="product-title">هوندا قرمز </h1>
-      <p class="product-price"><del>300,000</del> → 210,000 تومان</p>
+      <h1 class="product-title">کاربراتور  200cc </h1>
+      <p class="product-price">  500,000 تومان →<del>700,000تومان</del></p>
       <h3>ویژگی‌ها:</h3>
       <ul>
-        <li>دارای لرزش گیر</li>
-        <li> باک 12 لیتر </li>
+        <li>ساده و قابل تعمیر</li>
+        <li> افزایش شتاب</li>
     
       </ul>
       <p class="product-description">
-        این ماوس گیمینگ با طراحی ارگونومیک و قابلیت تنظیم DPI، برای گیمرها و کاربرانی که دقت بالا نیاز دارند بسیار مناسب است.
+       قطعه‌ای کلیدی که نسبت سوخت و هوا را تنظیم می‌کند تا موتور ۲۰۰ سی‌سی با شتاب بهتر، مصرف بهینه و عملکرد روان کار کند.
       </p>
-      <button class="add-to-cart">افزودن به سبد خرید</button>
+      <button class="add-to-cart" onclick="addToCart()">افزودن به سبد خرید</button>
     </div>
   </section>
+  <script>
+function addToCart() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let product = {
+        name: " کاربراتور",
+        price: 500000,
+        quantity: 1
+    };
+
+    let existing = cart.find(item => item.name === product.name);
+
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        cart.push(product);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // انتقال به سبد خرید
+    window.location.href = "checkout.html";
+}
+</script>
 </body>
 </html>

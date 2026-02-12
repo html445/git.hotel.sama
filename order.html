@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تکمیل سفارش</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2600ff;
+            color: white;
+            font-weight: bold;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            max-width: 500px;
+            margin: 20px auto 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #2600ff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #2600ff;
+        }
+
+        h2 {
+            text-align: right;
+            margin-top: 20px;
+            font-size: 20px;
+            color: #2600ff;
+        }
+    </style>
+</head>
+<body>
+
+<h1>تکمیل سفارش</h1>
+
+<!-- جدول سبد خرید -->
+<table id="cart-table">
+    <thead>
+        <tr>
+            <th>نام محصول</th>
+            <th>قیمت</th>
+            <th>تعداد</th>
+            <th>جمع</th>
+        </tr>
+    </thead>
+    <tbody id="cart-items"></tbody>
+</table>
+
+<h2>مجموع کل: <span id="total-price">0</span> تومان</h2>
+
+<!-- فرم اطلاعات کاربر -->
+<form id="order-form">
+    <label for="name">نام و نام خانوادگی:</label>
+    <input type="text" id="name" placeholder= " مثلاً حسین نجف وند" required>
+
+    <label for="address">آدرس:</label>
+    <input type="text" id="address" placeholder="آدرس کامل خود را وارد کنید" required>
+
+    <label for="payment">شیوه پرداخت:</label>
+    <select id="payment" required>
+        <option value="">انتخاب کنید</option>
+        <option value="card">کارت بانکی</option>
+        <option value="cod">پرداخت در محل</option>
+    </select>
+
+    <button type="submit">پرداخت</button>
+</form>
+
+<script>
+function showCart() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartItems = document.getElementById("cart-items");
+    let totalPrice = document.getElementById("total-price");
+
+    cartItems.innerHTML = "";
+    let total = 0;
+
+    cart.forEach(item => {
+        let sum = item.price * item.quantity;
+        total += sum;
+
+        let row = document.createElement("tr");
+
+        let tdName = document.createElement("td");
+        tdName.textContent = item.name;
+        row.appendChild(tdName);
+
+        let tdPrice = document.createElement("td");
+        tdPrice.textContent = item.price;
+        row.appendChild(tdPrice);
+
+        let tdQty = document.createElement("td");
+        tdQty.textContent = item.quantity;
+        row.appendChild(tdQty);
+
+        let tdSum = document.createElement("td");
+        tdSum.textContent = sum;
+        row.appendChild(tdSum);
+
+        cartItems.appendChild(row);
+    });
+
+    totalPrice.textContent = total;
+}
+
+// نمایش سبد خرید هنگام بارگذاری صفحه
+document.addEventListener("DOMContentLoaded", showCart);
+
+// ارسال فرم
+document.getElementById("order-form").addEventListener("submit", function(e){
+    e.preventDefault();
+const name = document.getElementById("name").value;
+    const address = document.getElementById("address").value;
+    const payment = document.getElementById("payment").value;
+
+    if(!name || !address || !payment){
+        alert("لطفا همه فیلدها را تکمیل کنید!");
+        return;
+    }
+
+    const order = {
+        customerName: name,
+        address: address,
+        paymentMethod: payment,
+        cart: JSON.parse(localStorage.getItem("cart")) || []
+    };
+
+    console.log("سفارش ثبت شد:", order);
+
+    localStorage.removeItem("cart"); // پاک کردن سبد بعد از ثبت سفارش
+
+    alert("سفارش شما ثبت شد! با تشکر.");
+    window.location.href = "product1.html"; // بازگشت به صفحه محصولات
+});
+</script>
+
+</body>
+</html>
