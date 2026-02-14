@@ -18,7 +18,7 @@ document.querySelector(".prev").onclick = function () {
     showSlide(current);
 };
 
-// تعویض خودکار هر 4 ثانیه
+// تعویض خودکار هر 8 ثانیه
 setInterval(() => {
     current++;
     if (current >= slides.length) current = 0;
