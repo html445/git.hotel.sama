@@ -102,15 +102,15 @@ nav ul li:hover ul {
 .menu > ul > li {
   display: inline-block;
   position: relative;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .menu a {
   text-decoration: none;
-  padding: 20px 30px;
+  padding: 15px 20px;
   display: block;
   background: #3b82f6;
-  border-radius: 20px;
+  border-radius: 10px;
   color: #ffffff;
 }
 
